@@ -1,0 +1,614 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ :root {--mermaid-font-zoom:1.5em ;} 
+</style><title>IEOD App - Maintenance Manual</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='ieod-app---maintenance-manual'><span>IEOD App - Maintenance Manual</span></h1><p><img src="https://www.dropbox.com/s/tiub7se1qxekdka/IconLauncher.png?raw=1" alt="IconLauncher" width=500 /></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#ieod-app---maintenance-manual">IEOD App - Maintenance Manual</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n8"><a class="md-toc-inner" href="#intro">Intro</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n33"><a class="md-toc-inner" href="#technical-stuff">Technical Stuff</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n34"><a class="md-toc-inner" href="#supporting-platforms">Supporting Platforms</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n36"><a class="md-toc-inner" href="#dependencies-and-versions">Dependencies and Versions</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n41"><a class="md-toc-inner" href="#git-management">Git Management</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n48"><a class="md-toc-inner" href="#prerequisites">Prerequisites</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n69"><a class="md-toc-inner" href="#first-run">First Run</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n75"><a class="md-toc-inner" href="#components-overview">Components Overview</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n98"><a class="md-toc-inner" href="#models--data-objects--entities">Models / Data Objects / Entities</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n114"><a class="md-toc-inner" href="#employee">Employee </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n116"><a class="md-toc-inner" href="#main-attributes-1">Main Attributes </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n140"><a class="md-toc-inner" href="#project">Project</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n142"><a class="md-toc-inner" href="#main-attributes-2">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n157"><a class="md-toc-inner" href="#arrangement">Arrangement</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n159"><a class="md-toc-inner" href="#main-attributes-3">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n167"><a class="md-toc-inner" href="#drivearrangement">DriveArrangement </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n169"><a class="md-toc-inner" href="#workarrangement">WorkArrangement</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n171"><a class="md-toc-inner" href="#imagefolderor-mapfolder">ImageFolder(or MapFolder)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n173"><a class="md-toc-inner" href="#main-attributes-4">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n180"><a class="md-toc-inner" href="#imagereference">ImageReference </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n182"><a class="md-toc-inner" href="#main-attributes-5">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n190"><a class="md-toc-inner" href="#site">Site</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n192"><a class="md-toc-inner" href="#main-attributes-6">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n196"><a class="md-toc-inner" href="#plot">Plot</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n198"><a class="md-toc-inner" href="#main-attributes-7">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n205"><a class="md-toc-inner" href="#strip">Strip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n207"><a class="md-toc-inner" href="#stripjob">StripJob</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n218"><a class="md-toc-inner" href="#main-attributes-8">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n254"><a class="md-toc-inner" href="#important-methods-1">Important Methods </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n257"><a class="md-toc-inner" href="#report">Report</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n259"><a class="md-toc-inner" href="#main-attributes-9">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n272"><a class="md-toc-inner" href="#template">Template</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n274"><a class="md-toc-inner" href="#main-attributes-10">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n287"><a class="md-toc-inner" href="#service-layer">Service Layer</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n291"><a class="md-toc-inner" href="#data-service">Data Service</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n314"><a class="md-toc-inner" href="#database-modeling">Database Modeling</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n347"><a class="md-toc-inner" href="#flexible-refactoring">Flexible Refactoring </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n358"><a class="md-toc-inner" href="#possible-changes">Possible changes</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n359"><a class="md-toc-inner" href="#adding-new-entity">Adding New Entity</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n373"><a class="md-toc-inner" href="#important-notice---offline-usage">Important Notice - Offline Usage</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n377"><a class="md-toc-inner" href="#storage-service">Storage Service</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n395"><a class="md-toc-inner" href="#authentication-service">Authentication Service</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n406"><a class="md-toc-inner" href="#logic-layer">Logic Layer</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n410"><a class="md-toc-inner" href="#word-on-statenotifiers">Word On StateNotifiers</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n417"><a class="md-toc-inner" href="#stream-vs-futures-and-data-extracting">Stream Vs Futures and Data Extracting</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n426"><a class="md-toc-inner" href="#employeehandler">EmployeeHandler </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n428"><a class="md-toc-inner" href="#needed-services-1">Needed Services</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n436"><a class="md-toc-inner" href="#state-notifiers-1">State notifiers</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n437"><a class="md-toc-inner" href="#currentemployeecontroller">CurrentEmployeeController</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n441"><a class="md-toc-inner" href="#fieldhandler">FieldHandler</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n443"><a class="md-toc-inner" href="#needed-services-2">Needed Services</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n451"><a class="md-toc-inner" href="#state-notifiers-2">State Notifiers</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n453"><a class="md-toc-inner" href="#currentplotcontroller">currentPlotController</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n455"><a class="md-toc-inner" href="#currentsitecontroller">currentSiteController</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n457"><a class="md-toc-inner" href="#reporthandler">ReportHandler</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n460"><a class="md-toc-inner" href="#dailyinfohandler">DailyInfoHandler</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n462"><a class="md-toc-inner" href="#needed-services-3">Needed Services</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n473"><a class="md-toc-inner" href="#projecthandler">ProjectHandler</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n475"><a class="md-toc-inner" href="#state-notifiers-3">State Notifiers</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n481"><a class="md-toc-inner" href="#initializer">Initializer</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n483"><a class="md-toc-inner" href="#important-methods-2">Important Methods</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n487"><a class="md-toc-inner" href="#offline-support">Offline Support</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n491"><a class="md-toc-inner" href="#presentation-layer">Presentation Layer</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n496"><a class="md-toc-inner" href="#widgets-1">Widgets </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n499"><a class="md-toc-inner" href="#permission-widgets">Permission Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n509"><a class="md-toc-inner" href="#navigation-widgets">Navigation Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n517"><a class="md-toc-inner" href="#other-useful-widgets">Other Useful Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n518"><a class="md-toc-inner" href="#imagepickerandshower">ImagePickerAndShower</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n522"><a class="md-toc-inner" href="#screens">Screens</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n544"><a class="md-toc-inner" href="#view-model">View Model</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n547"><a class="md-toc-inner" href="#screen-folder">Screen Folder </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n549"><a class="md-toc-inner" href="#controllers">Controllers </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n551"><a class="md-toc-inner" href="#widgets-2">Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n555"><a class="md-toc-inner" href="#screenutils">ScreenUtils  </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n557"><a class="md-toc-inner" href="#screenutilsregular">ScreenUtils(Regular)</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n559"><a class="md-toc-inner" href="#screenutilscontrollerforlist">ScreenUtilsControllerForList</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n561"><a class="md-toc-inner" href="#use-of-view-model-in-screen">Use Of View Model in Screen</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n571"><a class="md-toc-inner" href="#asyncvalue">AsyncValue</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n585"><a class="md-toc-inner" href="#main-widget-flow">Main Widget Flow</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n620"><a class="md-toc-inner" href="#brick-wall-pattern">"Brick Wall" Pattern</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n625"><a class="md-toc-inner" href="#current-templates">Current Templates</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n643"><a class="md-toc-inner" href="#current-bricks">Current Bricks</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n645"><a class="md-toc-inner" href="#template-building">Template Building</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n650"><a class="md-toc-inner" href="#function-resolver">Function Resolver</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n659"><a class="md-toc-inner" href="#builders">Builders</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n660"><a class="md-toc-inner" href="#templateformbuilder">TemplateFormBuilder </a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n662"><a class="md-toc-inner" href="#widgetformbuilder">WidgetFormBuilder</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n665"><a class="md-toc-inner" href="#outputbuilder">OutputBuilder</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n667"><a class="md-toc-inner" href="#pdfbuilder">PDFBuilder </a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n670"><a class="md-toc-inner" href="#adding-new-brick-type">Adding new Brick Type</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n676"><a class="md-toc-inner" href="#adding-new-output-format">Adding new output format</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n683"><a class="md-toc-inner" href="#templates-versioning">Templates Versioning</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n690"><a class="md-toc-inner" href="#templates---report-cycle--create-new-report">Templates - Report Cycle : Create New Report </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n700"><a class="md-toc-inner" href="#templates---report-cycle--edit-existing-report">Templates - Report Cycle : Edit Existing Report </a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n707"><a class="md-toc-inner" href="#mapping-each-templatetype-to-its-buildtemplate-method">Mapping each <code>TemplateType</code> to it's <code>BuildTemplate</code> Method</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n710"><a class="md-toc-inner" href="#how-to-add-new-template">How to Add New Template</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n733"><a class="md-toc-inner" href="#tests">Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n735"><a class="md-toc-inner" href="#unit-tests">Unit Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n738"><a class="md-toc-inner" href="#logic-tests">Logic Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n749"><a class="md-toc-inner" href="#ui-tests">UI Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n760"><a class="md-toc-inner" href="#qa-tests">QA Tests</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n763"><a class="md-toc-inner" href="#deployment">Deployment</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n767"><a class="md-toc-inner" href="#android">Android</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n783"><a class="md-toc-inner" href="#further-documentation">Further Documentation</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n790"><a class="md-toc-inner" href="#contributors">Contributors</a></span></p></div><p>&nbsp;</p><h2 id='intro'><span>Intro</span></h2><p><strong><span>Important Note</span></strong><span>: This manual is for to help future developers to maintain this project, but it still contains a lot of terms that are from the demining world. this manual is assuming you know these terms. Before reading this files make sure to read the following files:</span></p><ul><li><a href='https://docs.google.com/document/d/16wmAvJLrtPDcjFIm4-CckbLBcD2r-sBiNd5kQaUfIVA/edit?usp=sharing'><span>Application Requirements Document</span></a></li><li><a href='https://docs.google.com/document/d/1x-NG319cTTV7OzaAs06OufpNAinXaEnMzV2XrBh8wcg/edit?usp=sharing'><span>Application Design Document</span></a></li></ul><p>&nbsp;</p><p><span> This App was develop for IEOD , and It&#39;s main purpose it&#39;s to help manage all the data flow in de-mining projects by the company. for  The Main Features of the app are:</span></p><ol start='' ><li><span>Fill the project reports, storing them for future reference and sharing them as files according to the company format.</span></li><li><span>Manage the strips that are being demined manually.</span></li><li><span>Manage employees in different projects.</span></li><li><span>Save and Share images that were taken in site.</span></li><li><span>Publish work and drive Schedules </span></li></ol><p><span>This App was first created by Shani Samson, Amir Stadler, Avi Buckman and Tomer Gonen as part of an Final Project in Software Engineering degree in Ben-Gurion University of the Negev. </span></p><ul><li><span>This Project is Currently not Maintained!  if it is, (change this line)</span></li></ul><p>&nbsp;</p><h2 id='technical-stuff'><span>Technical Stuff</span></h2><h3 id='supporting-platforms'><span>Supporting Platforms</span></h3><p><span>IEOD App is currently available only for Android devices. </span><strong><span>However</span></strong><span>, it is build for expansion to IOS and Web without much of a hassle.</span></p><h3 id='dependencies-and-versions'><span>Dependencies and Versions</span></h3><p><span>The entire source code is for the client side, which handles the app logic, and the communications for external services.</span></p><p><span>This Project is Currently written in Flutter (version 1.22.6) in the client side, and uses Firebase as the server side. All the dependencies of the project and their versions are described in the </span><code>pubspec.yaml</code><span> file. </span></p><p><strong><span>Note:</span></strong><span> All the dependencies are ready for upgrade to Flutter 2. To be able to deploy this project to the web it is a necessary step to upgrade all dependencies to flutter 2.</span></p><p>&nbsp;</p><h3 id='git-management'><span>Git Management</span></h3><p><span>There are a lot of Branches in the repository, but only two of them really matters:</span></p><ol start='' ><li><code>develop</code><span> - Branch for developing and testing new features. In GitHub repository it is considered to be the main branch to push to (only after admin approval and code review). The code in this branch is configured to work with the development database.</span></li><li><code>Versions</code><span> - Branch of the code that currently runs in </span><strong><span>production</span></strong><span>. The work assumptions is that the latest check point in this branch is the version that currently installed on the devices of the employees of IEOD. The code in this branch is configured to run with the production database.</span></li></ol><h3 id='prerequisites'><span>Prerequisites</span></h3><ol start='' ><li><p><span>You should install Flutter and android SDK according to the guide in the following links:</span></p><ul><li><span>Windows: </span><a href='https://flutter.dev/docs/get-started/install/windows' target='_blank' class='url'>https://flutter.dev/docs/get-started/install/windows</a></li><li><span>Mac: </span><a href='https://flutter.dev/docs/get-started/install/macos' target='_blank' class='url'>https://flutter.dev/docs/get-started/install/macos</a></li><li><span>Linux: </span><a href='https://flutter.dev/docs/get-started/install/linux' target='_blank' class='url'>https://flutter.dev/docs/get-started/install/linux</a></li><li><span>Chrome OS: </span><a href='https://flutter.dev/docs/get-started/install/chromeos' target='_blank' class='url'>https://flutter.dev/docs/get-started/install/chromeos</a></li></ul></li><li><p><span>If the project is still in Flutter 1, remember to use the command </span><code>flutter downgrade 1.22.6</code><span> and </span><code>y</code><span> what the </span><code>are you sure</code><span> question is up. after installation make sure that the command</span>
+<code>flutter doctor</code>
+<span>is working.</span></p></li><li><p><span>Ask from the man In charge of the app in IEOD to be added as a admin in the Firebase project to be able to look at the database,authentication , and storage state ( currently it&#39;s Yotam Paran from IEOD)</span></p></li><li><p><span>Clone project from the </span><a href='https://github.com/yodatk/IEODApp'><span>Project site</span></a></p></li></ol><p>&nbsp;</p><h3 id='first-run'><span>First Run</span></h3><p><strong><span>Important Notice:</span></strong><span> make sure your local git repository is on the </span><code>develop</code><span> branch , so you will not affect the App in production!</span></p><p><span>After cloning the project, you have two options for running the project: By emulator, or by physical device.</span></p><p><span>Either way, after the device is connected, you can run the app by running </span><code>flutter run</code><span> and see the app working on the device.</span></p><p><strong><span>Important Notice:</span></strong><span>  Again, very important that you will do all the testing in the </span><code>develop</code><span> branch, so nothing will affect the production branch that is on the </span><code>Versions</code><span> branch.</span></p><p>&nbsp;</p><h2 id='components-overview'><span>Components Overview</span></h2><p>&nbsp;</p><p><span>The Project is written in a 3-tier architecture, as presented in the following diagram</span></p><p><img src="https://www.dropbox.com/s/9zeuj4vqh46tigb/Component%20Diagram.png?raw=1" referrerpolicy="no-referrer" alt="Component Diagram"></p><p><span>From this Diagram we can conclude the general design of the app:</span></p><ul><li><p><span>There are 3 main external Services in the app :</span></p><ol start='' ><li><span>Data Service - For saving data online and sync it between all users of the app</span></li><li><span>Storage Service - For uploading / downloading images (profile pictures, project images, field finding etc.)</span></li><li><span>Authentication Service - For Registering / Logging in Users to the app.</span></li></ol><p><span>All of those services are going to be explained thoroughly in the Service Layer Chapter. currently all of those services are implemented by Firebase services.</span></p><p><span>Also, there is a connection to the Collector app which is establish by link (navigate to the Collector app or to the play store if the app is not installed)</span></p></li><li><p><span>There is one central component for logic layer, which will be detailed later.</span></p></li><li><p><span>The Presentation layer is Separated by Use cases in the app, and each component contains all the Screens, widgets, and view models needed for running the app. (which will also be explained later.)</span></p></li></ul><p><span>In this manual we will research each layer , describe it&#39;s main classes, and explain how they work. we will start from the service layer, and move &quot;up&quot; to the presentation layer</span></p><p><span>But first  - lets talk about the data object - entities in this project</span></p><h2 id='models--data-objects--entities'><span>Models / Data Objects / Entities</span></h2><p><span>In the following diagram we can see all the Entities in the project. all of those are saved and extracted from the database, and are the main source of data manipulation in the IEOD App.</span></p><p><img src="https://www.dropbox.com/s/bsn615jhftruduq/DataObjectsDiagram%20%282%29.png?raw=1" referrerpolicy="no-referrer" alt="DataObjectsDiagram (2)"></p><p><strong><span>Notice:</span></strong><span> each of the entities is extending the Entity class which contain:</span></p><ol start='' ><li><strong><span>Id</span></strong><span> - id of the entity in the database(</span><code>String</code><span>)</span></li><li><strong><span>createdTime</span></strong><span>  - Time the entity was created. Saved as time in milliseconds since Epoch in database (</span><code>DateTime</code><span>)</span></li><li><strong><span>modifiedTime</span></strong><span> -  Time the entity was last modified. Saved as time in milliseconds since Epoch in database(</span><code>DateTime</code><span>)</span></li></ol><p><span>important methods in the Entity class:</span></p><ol start='' ><li><code>Entity.fromJson(String id,)</code></li></ol><p><span>Let&#39;s explain each one of the the entities in the project:</span></p><h3 id='employee'><span>Employee </span></h3><p><span>Represents an Employee of IEOD.</span></p><h4 id='main-attributes-1'><span>Main Attributes </span></h4><ul><li><p><strong><span>name</span></strong><span> - Name of the Employee (</span><code>String</code><span>)</span></p></li><li><p><strong><span>phoneNumber</span></strong><span> - Phone Number of the Employee</span></p></li><li><p><strong><span>permission</span></strong><span> - </span><code>Permission</code><span> Enum  that determines the actions the Employee can do in the app. the available Permissions are </span></p><ul><li><code>ADMIN</code><span> - can edit all aspects in the app and have access to the Admin menu</span></li><li><code>MANAGER</code><span> - can edit all aspects in the app </span><strong><span>but</span></strong><span> it cannot edit employees, plots, sites, and project. </span></li><li><code>REGULAR</code><span> - have access only to the daily info screen , with view permission only</span></li></ul></li><li><p><strong><span>email</span></strong><span> - email of the employee used for authentication and for password reset if necessary</span></p></li><li><p><strong><span>isHandWorker</span></strong><span> - flag to define if the employee can demine manually or not (</span><code>bool</code><span>)</span></p></li><li><p><strong><span>projects</span></strong><span> - Set of </span><code>Project</code><span> ids which represents all the project this employee is in (</span><code>Set&lt;String&gt;</code><span>).</span></p></li><li><p><strong><span>imageUrl</span></strong><span> - url for the employee profile picture.  if it doesn&#39;t have a profile picture, it will be empty (</span><code>String</code><span>)</span></p></li></ul><p>&nbsp;</p><h3 id='project'><span>Project</span></h3><p><span>Represents a single project of demining  in IEOD.</span></p><h4 id='main-attributes-2'><span>Main Attributes</span></h4><ul><li><strong><span>name</span></strong><span> - Name of the project(</span><code>String</code><span>)</span></li><li><strong><span>employer</span></strong><span> -  </span><code>Comapany</code><span> Enum  for the company that runs the project. currently it&#39;s either </span><code>IMAG</code><span> or </span><code>IEOD</code></li><li><strong><span>projectManagerId</span></strong><span> - Id of the Employee that is the manager of this project (</span><code>String</code><span>)</span></li><li><strong><span>isActive</span></strong><span> - Determines if the project is active and editable, or in-active, and cannot be edit(</span><code>bool</code><span>)</span></li><li><strong><span>employees</span></strong><span> - Set of Employees id&#39;s of employee ids that are participating in this project (</span><code>Set&lt;String&gt;</code><span>)</span></li><li><strong><span>imageUrl</span></strong><span> - url for the profile image of this project. if there is no image, the field will be empty or null</span></li></ul><p>&nbsp;</p><h3 id='arrangement'><span>Arrangement</span></h3><p><span>There are two types of arrangements , both have same attributes. for easier Database management, they both have their own entities,  with the </span><code>ArrangementType</code><span> to differentiate between them (</span><code>WORK</code><span> for work schedule arrangement or </span><code>DRIVE</code><span> for drive arrangement)</span></p><h4 id='main-attributes-3'><span>Main Attributes</span></h4><ul><li><strong><span>date</span></strong><span> - Time of this arrangement(</span><code>DateTime</code><span>)</span></li><li><strong><span>freeTextInfo</span></strong><span> - The description  arrangement itself (</span><code>String</code><span>)</span></li><li><strong><span>lastEditor</span></strong><span> - last employee to edit this arrangement (</span><code>EmployeeForDocs</code><span>)</span></li></ul><h4 id='drivearrangement'><span>DriveArrangement </span></h4><p><span>Represents a Drive Arrangement  for a certain day in the project.  defined by the Enum of </span><code>ArrangementType.DRIVE</code></p><h4 id='workarrangement'><span>WorkArrangement</span></h4><p><span>Represents a work schedule for a certain day  in the project. defined by the   </span><code>ArrangementType.WORK</code></p><h3 id='imagefolderor-mapfolder'><span>ImageFolder(or MapFolder)</span></h3><p><span>Represents a folder of images that were taken from a certain day in the project.</span></p><h4 id='main-attributes-4'><span>Main Attributes</span></h4><ul><li><strong><span>date</span></strong><span> - Date of all the images that are in the folder (</span><code>DateTime</code><span>)</span></li><li><strong><span>numberOfImages</span></strong><span> - Number of images that are in the folder (</span><code>int</code><span>)</span></li></ul><p>&nbsp;</p><h3 id='imagereference'><span>ImageReference </span></h3><p><span>Represents a single image that were taken in a day of work at the project. notice that </span><code>ImageReference</code><span> is organized as a inner collection inside </span><code>ImageFolder</code><span>. </span></p><h4 id='main-attributes-5'><span>Main Attributes</span></h4><ul><li><strong><span>fullPath</span></strong><span> - Full path of this image in the storage service (</span><code>String</code><span>)</span></li><li><strong><span>imageUrl</span></strong><span> - Downloadable url of the image(</span><code>String</code><span>)</span></li><li><strong><span>lastEditor</span></strong><span> - Last Employee to edit this image(</span><code>EmployeeForDocs</code><span>)</span></li></ul><h3 id='site'><span>Site</span></h3><p><span>Represents the Largest Field Area where Machine Employees or Manual Employees are demining in multiple plots. IEOD is dividing the Field of the project by Sites to handle logistics of multiple plots together.</span></p><h4 id='main-attributes-6'><span>Main Attributes</span></h4><ul><li><strong><span>name</span></strong><span> - Name of this site</span></li></ul><h3 id='plot'><span>Plot</span></h3><p><span>Represents Large Field Area where Machine Employees or Manual Employees are demining. Usually there is either a Manual Demining or Mechanical, but not both.</span></p><h4 id='main-attributes-7'><span>Main Attributes</span></h4><ul><li><strong><span>name</span></strong><span> - Name of this site (</span><code>String</code><span>)</span></li><li><strong><span>siteId</span></strong><span> - Id of the containing Site (</span><code>String</code><span>)</span></li></ul><h3 id='strip'><span>Strip</span></h3><p><span>Represents a thin line of field for manual demining . </span></p><h4 id='stripjob'><span>StripJob</span></h4><p><span>record of who is working in each one of the actions first, second, review(third) </span></p><ul><li><strong><span>employeeId</span></strong><span> - Id of the employee who have don the job (</span><code>String</code><span>)</span></li><li><strong><span>employeeName</span></strong><span> - Name of the employee who has done the job(</span><code>String</code><span>)</span></li><li><strong><span>isDone</span></strong><span> - indicator whether the job is done or not(</span><code>bool</code><span>)</span></li><li><strong><span>lastModifiedDate</span></strong><span> - last time the job was modified(</span><code>DateTime</code><span>)</span></li></ul><h4 id='main-attributes-8'><span>Main Attributes</span></h4><ul><li><p><strong><span>name</span></strong><span> - Name of this site (</span><code>String</code><span>)</span></p></li><li><p><strong><span>plotId</span></strong><span> - Id of the containing Plot(</span><code>String</code><span>)</span></p></li><li><p><strong><span>currentStatus</span></strong><span> - the current status of the Strip. there are </span><strong><span>7</span></strong><span> possible valid statuses for the strip (</span><code>StripStatus</code><span>):</span></p><ul><li><code>NONE</code><span> - No employee stated working in this area. still dangerous to walk there.</span></li><li><code>IN_FIRST</code><span> - There is an Employee which currently is working on this Strip</span></li><li><code>FIRST_DONE</code><span> - Some Employee scanned that strip once. safer to walk in </span></li><li><code>IN_SECOND</code><span> - Some Employee is doing double check on the first employee job</span></li><li><code>SECOND_DONE</code><span> - Double check is also done</span></li><li><code>IN_REVIEW</code><span> - Employee with more experience is now sampling part of this strip</span></li><li><code>DONE</code><span> - The Strip is done, and free of mines</span></li></ul></li><li><p><strong><span>first</span></strong><span> - Record who and when someone did the first review of the strip, and whether it&#39;s done or not (</span><code>StripJob</code><span>)</span></p></li><li><p><strong><span>second</span></strong><span> - Record who and when someone did the second review of the strip, and whether it&#39;s done or not (</span><code>StripJob</code><span>)</span></p></li><li><p><strong><span>third</span></strong><span>  - Record who and when someone did the final review of the strip, and whether it&#39;s done or not (</span><code>StripJob</code><span>)</span></p></li><li><p><strong><span>notes</span></strong><span> - Any additional notes that needed to be recorded about the strip</span></p></li><li><p><strong><span>mineCount</span></strong><span> - Number of mines\targets found in the strip</span></p></li><li><p><strong><span>depthTargetCount</span></strong><span> - Number of target the the employees couldn&#39;t dig them selves and are counted for later</span></p></li></ul><p>&nbsp;</p><h4 id='important-methods-1'><span>Important Methods </span></h4><p><code>StripStatus updateStripStatus()</code><span>  - making sure the current </span><code>Strip</code><span> has a valid data. for example - it&#39;s not possible to declare that a strip is done, before all of it&#39;s strip jobs are done. or it&#39;s not possible to skip steps (create second stripJob before the first one etc.)</span></p><p>&nbsp;</p><h3 id='report'><span>Report</span></h3><p><span>Represents a report that being written in the field for documentation. the report is part of the &quot;Brick Wall&quot; Pattern (that will be explained later) for creating interactive forms, that can easily be converted to pdf files, with reusable components (Bricks).</span></p><h4 id='main-attributes-9'><span>Main Attributes</span></h4><ul><li><strong><span>name</span></strong><span> - Name of the report(</span><code>String</code><span>)</span></li><li><strong><span>template</span></strong><span> - </span><code>Template</code><span> of the report , the report using the template to when it need to be used as a digital form, or when it&#39;s to be generated as PDF file using the </span><code>attributeValues</code><span> map to fill the blanks</span></li><li><strong><span>attributeValues</span></strong><span> - map of attribute key (which matches to a </span><code>TemplateBrick</code><span> in the </span><code>Template</code><span>) to the value to put in the attribute. </span></li><li><strong><span>creator</span></strong><span> - The Employee that created this Report (</span><code>EmployeeForDocs</code><span>)</span></li><li><strong><span>lastEditor</span></strong><span> - Last Employee to Edit this Report(</span><code>EmployeeForDocs</code><span>)</span></li></ul><p>&nbsp;</p><h3 id='template'><span>Template</span></h3><p><span>Represents a type Of Report, and the way it should be built on screen and as PDF file. it is build using the </span><code>TemplateBrick</code></p><h4 id='main-attributes-10'><span>Main Attributes</span></h4><ul><li><strong><span>name</span></strong><span> - Name of the report(</span><code>String</code><span>)</span></li><li><strong><span>template</span></strong><span> - </span><code>Template</code><span> of the report , the report using the template to when it need to be used as a digital form, or when it&#39;s to be generated as PDF file using the </span><code>attributeValues</code><span> map to fill the blanks</span></li><li><strong><span>templateBricks</span></strong><span> - List of TemplateBricks , which defines the way the report of this template are going to look like</span></li></ul><p>&nbsp;</p><p><strong><span>Notice</span></strong><span>:  The relation of the report with it&#39;s template are going to be explained later in much detail</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='service-layer'><span>Service Layer</span></h2><p><span>As explained before, there are 3 main external services in the app. each one of them has a general interface, and an implementation with firebase services (currently) lets dive in :</span></p><p><img src="https://www.dropbox.com/s/hnlj629d84d1zef/Class%20Diagram-Service%20and%20DAO%20focus.png?raw=1"  /></p><p><img src="https://www.dropbox.com/s/gx93umdv7sxme8y/image-20210606234824637.png?raw=1" referrerpolicy="no-referrer" alt="image-20210606234824637"></p><h3 id='data-service'><span>Data Service</span></h3><p><span>In charge of saving and loading data from the database. </span></p><p><span>The data of the IEOD app in a </span><strong><span>Document based NoSQL</span></strong><span> database. Each model in the the app has a </span><code>toJson()</code><span> and </span><code>fromJson(String id, Map&lt;String,dynamic&gt; data)</code><span> methods for saving and loading models from the database. also each of those models (will be explained later in the logic layer) has it&#39;s own DAO interface and implementation, Currently in Firebase Firestore.</span></p><p><span>There are 3 modes to the Data Service ,each of them connecting to a different branch of the database:</span></p><ol start='' ><li><code>Test</code><span> - Configured for running automatic tests of the app</span></li><li><code>Development</code><span> -   Configured for running the app in while testing new features and debugging the app.</span></li><li><code>Production</code><span> - Configured for running the app by IEOD Employees.</span></li></ol><p><span>Important methods in the Data Service:</span>
+<img src="https://www.dropbox.com/s/r73d9n3k4v0g6yq/image-20210607010716279.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607010716279"></p><p>&nbsp;</p><p>&nbsp;</p><p><span>In the Implementation with Firebase Firestore there are two major points to notice:</span></p><ul><li><code>environment</code><span>- this variable determines if the data service is running in test modem development mode, or production mode. </span><strong><span>TREAT IT WITH CARE</span></strong><span>. </span>
+<img src="https://www.dropbox.com/s/bobanajkj4xuycv/image-20210607012914244.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607012914244"></li><li><code>DocumentReference getRoot()</code><span> - This function retrieve the right database branch from firestore according to the </span><code>enviorment</code><span> variable.</span>
+<img src="https://www.dropbox.com/s/zoipumd64e380yn/image-20210607012929429.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607012929429"></li></ul><p><span>The way the Database Branches looks in Firestore:</span></p><p><img src="https://www.dropbox.com/s/y2h9k78qqazzefc/image-20210607013021800.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607013021800"></p><p><span>Each of the branches (</span><code>Development</code><span>,</span><code>Test</code><span>,</span><code>Production</code><span>) contain the same document structure.</span></p><h4 id='database-modeling'><span>Database Modeling</span></h4><p><img src="https://www.dropbox.com/s/laq7enlmgg888sy/Document%20Based%20Database%20Modeling.png?raw=1" alt="Document Based Database Modeling"  /></p><p><span>There Are 3 base collections: Employees, Templates, and Projects. in each Project there are 7 sub collections: Sites,Plots,Strips,Reports,WorkArrangements,DriveArrangements and MapFolder. in the MapFolder(ImageFolder) there is another sub collection of ImageReferences. in a bullets diagram it looks like this:</span></p><ul><li><p><span>Employees</span></p></li><li><p><span>Templates</span></p></li><li><p><span>Projects</span></p><ul><li><p><span>Sites</span></p></li><li><p><span>Plots</span></p></li><li><p><span>Strips</span></p></li><li><p><span>Reports</span></p></li><li><p><span>WorkArrangements </span></p></li><li><p><span>DriveArrangements</span></p></li><li><p><span>MapFolders (ImageFolders)</span></p><ul><li><span>ImageReferences</span></li></ul></li></ul></li></ul><p><strong><span>The Logic behind the modeling:</span></strong><span>    Employees and Templates can be shared across multiple projects. each of the sub collection inside a Project is Project specific(same plot can&#39;t be shared across multiple projects for example). each MapFolder (ImageFolder) contain collection of individual Images references.</span></p><p><span>Each of the models has its own DAO in the service layer. (except for the Report and Template which share the same DAO, and ImageFolders and ImageReferences are sharing the same DAO as well )</span></p><p><span>all of those DAO are extending the </span><code>EntityDAO</code><span> class  (as shown in the diagram in the beginning of this </span><a href='#service-layer'><span>section</span></a><span> ). in the EntityDAO class there are all the generic functions for  for extracting / writing / editing / deleting data in a certain document/collection. Most of the DAO&#39;s doesn&#39;t need more than those functions to operate successfully In the app. Entities that required more logic , or special queries, write those queries in the specific DAO of the entity (described in the Interface DAO , and implemented in the Implementation DAO (currently Firebase)  )</span></p><p><span>Each Firebase DAO is also In charge of converting the </span><code>DocumentSnapshot</code><span> that it gets from the Firestore server to  it&#39;s matching model by using the </span><code>fromJson</code><span> method. example:</span></p><p><img src="https://www.dropbox.com/s/pi4zrf464osnve7/image-20210607024109319.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607024109319"></p><h4 id='flexible-refactoring'><span>Flexible Refactoring </span></h4><p><span>In an you want to use a different Data Service (let&#39;s say- MongoDB for example) the steps you need to do are the following:</span></p><ol start='0' ><li><span>Build same database modeling as it was in firestore in the new database provider, including the different environment branches</span></li><li><span>Create a new implementation for the Data Service interface using Mongo</span></li><li><span>Make sure there is a way to change the Database branch dynamically like the </span><code>enviorment</code><span> branch.</span></li><li><span>For each model, create an Implementation of it&#39;s DAO that uses mongo</span></li></ol><h4 id='possible-changes'><span>Possible changes</span></h4><h5 id='adding-new-entity'><span>Adding New Entity</span></h5><p><span>If a new Model is introduced, to add it to the database you need to follow the following steps:</span></p><ol start='0' ><li><span>Add it smartly to the current database modeling.</span></li><li><span>Create a Model in the Models folder, and extends the new model with Entity class, and implements all the necessary methods, with emphasis on the </span><code>toJson</code><span> and </span><code>fromJson</code><span> methods.</span></li><li><span>Create an Interface in the </span><code>interfacesDAO</code><span> folder for the new Model, and write all the necessary methods. </span><strong><span>Notice</span></strong><span> that it is recommended to extend the Entity DAO for future flexibility.</span></li><li><span>Implement the interface for the Implementation of choice(currently firebase)</span></li><li><span>Connect the new model to the UI using the handler of your choice according to it&#39;s context in the app and its use cases. (the logic handlers) will be explained later</span></li></ol><p>&nbsp;</p><h4 id='important-notice---offline-usage'><span>Important Notice - Offline Usage</span></h4><p><span>One of the main reasons the current version is running Firestore is it&#39;s native support in offline mode - which is very important to the client. if you deside to move to another database supplier, </span><strong><span>You should make sure that you support offline mode </span></strong></p><p>&nbsp;</p><p>&nbsp;</p><h3 id='storage-service'><span>Storage Service</span></h3><p><span>The Storage Service in the app is mainly for uploading Images , and downloading images for :</span></p><ol start='' ><li><span>Profile pictures of </span><code>Employee</code></li><li><span>Profile pictures of </span><code>Project</code></li><li><span>Daily Images (</span><code>ImagesReferences</code><span>)</span></li></ol><p><span>Each one of those is implementing the interface of </span><code>WithImage</code></p><p><img src="https://www.dropbox.com/s/mqkcyp4wp63sfqm/image-20210607174149567.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607174149567"></p><p><span>The point of this interface is to help generalize the procedure of uploading and downloading an image. </span></p><p><span>The Storage Service Interface is pretty straight forward</span></p><p><img src="https://www.dropbox.com/s/zjui3zlc7r9v3su/image-20210607174953626.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607174953626"></p><p>&nbsp;</p><p><span>The current Implementation is with Firebase Storage.</span></p><p><span> </span><strong><span>Notice</span></strong><span> that the download time and upload time depends on the current network bandwidth, be mindful of that when using progress indicators</span></p><p>&nbsp;</p><h3 id='authentication-service'><span>Authentication Service</span></h3><p><span>Used to Authenticate Users of the app . main uses cases:</span></p><ol start='' ><li><span>Register new Employees</span></li><li><span>Login existing Employees</span></li></ol><p><strong><span>Notice</span></strong><span>: when deleting Employee from Firestore, there is a trigger that deletes it automatically the Employee from firebase Auth. </span></p><p><span> </span><img src="https://www.dropbox.com/s/773qb0wxyi8mtum/image-20210607181747483.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607181747483"></p><p><span>The Implementation currently with Firebase Auth. </span></p><p><strong><span>Notice</span></strong><span> - </span><code>sendResetPasswordLinkToEmail(String email)</code><span> will send an email only if it is exists in the system . Otherwise it will not send one.</span></p><h2 id='logic-layer'><span>Logic Layer</span></h2><p><span>The logic Layer is Composed from 5 main Handlers, and 1 class that initializing them all .as can be seen in the Diagram:</span></p><p><img src="https://www.dropbox.com/s/bczgmd7n5z6gslx/Class%20Diagram%20-%20Logic%20Focus.png?raw=1" referrerpolicy="no-referrer" alt="Class Diagram - Logic Focus"></p><p><img src="https://www.dropbox.com/s/8o9paqygpswp8bo/image-20210607233437240.png?raw=1" referrerpolicy="no-referrer" alt="image-20210607233437240"></p><h3 id='word-on-statenotifiers'><span>Word On StateNotifiers</span></h3><p><span>State Notifiers is a Direct Link of communication which notifies all the relevant listeners on a change in a certain Entity or value.</span></p><p><span>any change in model data in the data base, get pushed to the the notifier, and then the notifier alert all it&#39;s listeners to the current change.</span></p><p><span>It works in a similar way to an Observer pattern.</span></p><p><span>We used this feature with the </span><a href='https://pub.dev/packages/riverpod'><span>rivepod</span></a><span> library to  make an responsive realtime UI</span></p><p><span>some of the Logic handlers are responsible on those state notifiers.</span></p><p>&nbsp;</p><h3 id='stream-vs-futures-and-data-extracting'><span>Stream Vs Futures and Data Extracting</span></h3><p><span>all of the Handlers are using data that is extracted from the service layer. but there is an important distinction between data that is imported as Future and the data that is imported as Stream :</span></p><ul><li><span>Future are good for tasks that require one time extract of data, without sync, and without live update.</span></li><li><span>Streams are good for situation when you want to get updated as fast as possible (since there communication with the data base remains open)</span></li></ul><p><strong><span>Important Notice</span></strong><span> - Streams does sound better, but they require disposal (where future are self disposed since they don&#39;t have a live connection to the database). when using streams, make sure you are disposing thier controllers in the end of their use (stuff that happens automatically when using Stream Provider by </span><a href='https://pub.dev/packages/riverpod'><span>riverpod</span></a><span>)</span></p><p>&nbsp;</p><h3 id='employeehandler'><span>EmployeeHandler </span></h3><p><span>In Charge Of all Functions of Employees data Manipulation. it&#39;s also in charge of registering users(using auth &amp; data services) , logging in users(Auth service), extracting specific users data, etc.</span></p><h4 id='needed-services-1'><span>Needed Services</span></h4><ul><li><span>Auth Service - For Registering users and logging in Users to the App </span></li><li><span>EmployeeDAO</span></li><li><span>Storage Service - To save Profile images of users</span></li></ul><h4 id='state-notifiers-1'><span>State notifiers</span></h4><h5 id='currentemployeecontroller'><span>CurrentEmployeeController</span></h5><p><span>In charge of saving the data of the current employee that is logged in to the app. it is changed </span></p><p><span>this notifier is used </span><strong><span>a lot</span></strong><span> since each screen in the app has it&#39;s own permission settings, and it uses this controller (via </span><a href='https://pub.dev/packages/riverpod'><span>riverpod</span></a><span>) to determines if to show certain screen \ ui element or not to a certain user.</span></p><p>&nbsp;</p><h3 id='fieldhandler'><span>FieldHandler</span></h3><p><span>In Charge of all Functions of Sites,Plots and Strips data manipulation. </span></p><h4 id='needed-services-2'><span>Needed Services</span></h4><ul><li><span>StripDAO </span></li><li><span>PlotDAO</span></li><li><span>SiteDAO</span></li></ul><h4 id='state-notifiers-2'><span>State Notifiers</span></h4><p><span>The notifiers in the Field Handler is Used Mainly to automate the report filling . The notifiers are:</span></p><h5 id='currentplotcontroller'><span>currentPlotController</span></h5><p><span>In charge of the plot the user currently navigated to.</span></p><h5 id='currentsitecontroller'><span>currentSiteController</span></h5><p><span>In charge of the Site the user currently navigated to.</span></p><h3 id='reporthandler'><span>ReportHandler</span></h3><p><span>In charge of Reports and Templates models. updating reports, or get the metching template version for a certain report  is with this Logic Handler</span></p><p><span>later in this manual, the process of the creating report and template will be further explained</span></p><h3 id='dailyinfohandler'><span>DailyInfoHandler</span></h3><p><span>In charge of all functions of WorkArrangements, DriveArrangements, and ImageFolders.</span></p><h4 id='needed-services-3'><span>Needed Services</span></h4><ul><li><span>WorkArrangementDAO</span></li><li><span>DriveArrangementDAO</span></li><li><span>ImageFolderDAO</span></li><li><span>Storage Service - For uploading images to Image Folder</span></li></ul><p>&nbsp;</p><h3 id='projecthandler'><span>ProjectHandler</span></h3><p><span>In Charge of Projects data manipulation.</span></p><h4 id='state-notifiers-3'><span>State Notifiers</span></h4><p><strong><span>currentProjectController</span></strong><span> - to determine which project the user is currently in.  if null , it means the user is currently did not choose a current project.</span></p><p><span>when it&#39;s not null, it is used to extract the mtaching data of the project the user is currently in.</span></p><p><span>for example , if you have two project p1, p2.  when user choose p1 as the project, the app will extract only the plots, site, report etc.  - that are relevant to project p1. </span></p><p><span>also - if an Employee is being added \ removed from a certain project, the current Project Controller is in charge to notify the UI to &quot;Kick out&quot; the current user back to the main menu </span></p><p>&nbsp;</p><h3 id='initializer'><span>Initializer</span></h3><p><span>In charge of initializing all the other Handlers: their external services, and DAO if necessary. it&#39;s the closest we have for dependency injection.</span></p><h4 id='important-methods-2'><span>Important Methods</span></h4><p><code>InitializeImages(BuildContext context)</code><span> - loads all static images in the app to cache for future use. </span></p><p><code>init(BuildContext context)</code><span> - initializing all handlers, loading all images, and specifically for firebase services - it is initializing the firebase core - which is necessary for all of the services needed by firebase. </span></p><p>&nbsp;</p><h3 id='offline-support'><span>Offline Support</span></h3><p><span>The App support offline mode, currently using the native Firestore build in cache capabilities.</span></p><p><span>to be capable on working in areas with low cellular reception, once a User selects a Project to work in, the handlers are pre-loading all relevant data of the project . This is for the case the phone loses it&#39;s reception,  the employee could still work with the data that has been gathered so far.</span></p><p><img src="https://www.dropbox.com/s/5ou9pjqm21qoy65/image-20210608130411686.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608130411686"></p><h2 id='presentation-layer'><span>Presentation Layer</span></h2><p><img src="https://www.dropbox.com/s/dtylsiip2397yef/MenuTree1st-%20updated.png?raw=1" referrerpolicy="no-referrer" alt="MenuTree1st- updated"></p><p>&nbsp;</p><p><span>Presentation Layer is Separated into 5 Main Sections, and 1 general section. we will explain the way we structure the UI , and the way we connect the UI to the logic layer.</span></p><p>&nbsp;</p><h3 id='widgets-1'><span>Widgets </span></h3><p><img src="https://www.dropbox.com/s/ais7t3lez7xfhq2/image-20210608101913577.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608101913577"></p><p><span>There are 3 Important familiy widgets:</span></p><h4 id='permission-widgets'><span>Permission Widgets</span></h4><p><span>Wrappers for other visible widgets, wich shows them only if the current User has the right permission, and\or the current user belong to the current project. there are three main permission widgets:</span></p><ol start='' ><li><code>PermissionWidget({@required this.permissionLevel,@required this.withPermission,this.withoutPermission,})</code><span>  - Shows the Widget with </span><code>withPermission</code><span> only if the user from </span><code>currentEmployeeController</code><span>  has a permission that is at least as high as </span><code>permissionLevel</code><span>. if </span><code>withoutPermission</code><span>was given, it will show it otherwise. if it was not given, it will shows nothing.</span></li><li><code>PermissionScreen({@required this.permissionLevel, @required this.title,@required this.body,this.withProject = true,})</code><span> -</span>
+<span>same as </span><code>PermissionWidget</code><span>, wrap the </span><code>withPermission</code><span> with scaffold. </span><code>withProject</code><span> is a flag that determines if also checks the employee is belonging to the current project. default is True.</span></li><li><code>PermissionScreenWithAppBar</code><span> - same as </span><code>PermissionScreen</code><span> , but which also have AppBar</span></li></ol><p><strong><span>Notice</span></strong><span> - The use of the Permission widget should be according to the permissions that each Employee should have in a given screen in the app. it&#39;s details in the requirement </span></p><h4 id='navigation-widgets'><span>Navigation Widgets</span></h4><p><span>Widgets for navigation in the app :</span></p><ol start='' ><li><span>AppDrawer - Drawer that is added to all Possible Screens and allows navigation to main menu, admin menu, loggin out etc.</span></li><li><span>NavigationRow - Default Button in menu screens.</span></li></ol><p>&nbsp;</p><h4 id='other-useful-widgets'><span>Other Useful Widgets</span></h4><h5 id='imagepickerandshower'><span>ImagePickerAndShower</span></h5><p><code>ImagePickerAndShower</code><span> widget to use to take image from camera or gallary when it&#39;s needed. currently it is in Daily images ,Employee forms ad Project forms.</span></p><p><span>There are more Widgets, but most of them self explanatory </span></p><p>&nbsp;</p><h3 id='screens'><span>Screens</span></h3><p><img src="https://www.dropbox.com/s/1v4c3h6syo0wooc/image-20210608102115888.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608102115888"></p><p><span>The screens are orginized by menus and thier subject:</span></p><ol start='' ><li><p><span>Daily Info</span></p><p><img src="https://www.dropbox.com/s/jhtg3nm9wmthu69/image-20210608103904412.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608103904412"></p></li><li><p><span>Employee Management</span></p><p><img src="https://www.dropbox.com/s/54tyvg7yr2pycja/image-20210608104020438.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608104020438"></p></li><li><p><span>login - login screen</span></p><p>&nbsp;</p></li><li><p><span>manage sites and Plots</span></p><p><img src="https://www.dropbox.com/s/6ir0ru3b8mncv7f/image-20210608104041176.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608104041176"></p></li><li><p><span>Project menu screens -</span></p><p><img src="https://www.dropbox.com/s/usquwgeui9qms64/image-20210608104351213.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608104351213"></p></li><li><p><span>General Screens</span></p><p><img src="https://www.dropbox.com/s/3fv74s99yz1s8wa/image-20210608104418473.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608104418473"></p></li></ol><h4 id='view-model'><span>View Model</span></h4><p><span>Each screen that have a ui logic to it (all screen except ones that are for navigation only ) is organized in the following way: </span></p><p><img src="https://www.dropbox.com/s/099afckc926p5ko/image-20210608105322389.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608105322389"></p><h5 id='screen-folder'><span>Screen Folder </span></h5><p>&nbsp;</p><h6 id='controllers'><span>Controllers </span></h6><p><span>=Folder for the view model class of the screen, it&#39;s needed providers, and supporting files.</span></p><h6 id='widgets-2'><span>Widgets</span></h6><p><span>All the needed widgets for </span><strong><span>for that specific screen</span></strong><span> (for general widget, use the general widgets folders in the main lib folder.)</span></p><p><span>The View Model Class in each screen folder is the class that handles all the ui logic (loading indicators switch, visual logic and so on) and also connects the screen with the logic layer for data related request (list of data, data manipulation and so on.)</span></p><p>&nbsp;</p><h5 id='screenutils'><span>ScreenUtils  </span></h5><p><span>Main field in Each  View Model class . it&#39;s in charge of scaffold context control (mainly for pop up dialogs or snackbars), loading indicators controllers, and so on. there are two types of Screen Controllers:</span></p><h6 id='screenutilsregular'><span>ScreenUtils(Regular)</span></h6><p><span>For generic screen utils, and loading controlls</span></p><h6 id='screenutilscontrollerforlist'><span>ScreenUtilsControllerForList</span></h6><p><span>Same as ScreenUtils, with Generics (gets type T) which helps for searching  and show messages on delete, add, edit on screen.</span></p><h5 id='use-of-view-model-in-screen'><span>Use Of View Model in Screen</span></h5><p><span>we connect the UI with it&#39;s matching VIewModel with the Riverpod hooks method :</span></p><p><span>Definition of the provider:</span></p><p><img src="https://www.dropbox.com/s/u2su9gou1k6ak9a/image-20210608110852498.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608110852498"></p><p>&nbsp;</p><p><span>Usage of the provider using hooks:</span></p><p><img src="https://www.dropbox.com/s/33ygflb08vqtv7e/image-20210608110751200.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608110751200"></p><p><span>Calling a function from View Model form an inner widget</span></p><p><img src="https://www.dropbox.com/s/3m0xqkdvbk8ikir/image-20210608111403908.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608111403908"></p><p><span>The View Model usage with RiverPod Hooks allows us to data transfer and function flow without passing it to the inner widgets.  this reduces </span><strong><span>A LOT</span></strong><span> of clutter  and mess around the code. it also helps as manage widget context more easily.</span></p><h5 id='asyncvalue'><span>AsyncValue</span></h5><p><span>another use of the View Model is to get data from the logic layer. sometimes this data takes time to get fully. in those time, we use the StreamProvider or FutureProvider to help us showing some loading indicator until the data arrives. the result of those providers is </span><strong><span>AsyncValue</span></strong><span>, and it have 3 modes, each one of those requires different handling function</span></p><ol start='' ><li><strong><span>data</span></strong><span> - When data arrives. need a function  that get data of required data (T) and returns a Widget(List or somthing like that)</span></li><li><strong><span>loading</span></strong><span>- When data did not arrive yet. need a function that gets no parameters, and returns a Widget(Progress indicator of some kind)</span></li><li><strong><span>error</span></strong><span> - When data failed to load. needs a function that gets the exception, and the stacktrace, and returns a Widget</span></li></ol><p><span>you can resolve each one of the scenarios using </span><code>when</code><span> function:</span></p><p><img src="https://www.dropbox.com/s/0hxuhyzw25c9ur5/image-20210608112834245.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608112834245"></p><p><img src="https://www.dropbox.com/s/rb76d36tqa5rsa4/image-20210608112938413.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608112938413"></p><p><strong><span>We encourage all future developer to embrace the same pattern to keep thing organized an unified around the app</span></strong></p><p>&nbsp;</p><h3 id='main-widget-flow'><span>Main Widget Flow</span></h3><p><span>when the app runs, it starts with this widget: </span></p><p><img src="https://www.dropbox.com/s/9zj2ug5e5ibyowe/image-20210608113216397.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608113216397"></p><p><span>We can see two Things:</span></p><ol start='' ><li><p><span>This widget contains all the Routes to navigate to . IEOD APP uses routes navigation. </span><strong><span>Make sure that each screen that you need to add, is added to the routes dictionary as well.</span></strong><span> to keep things simple, each screen (widget that contains scaffold) has static constant RouteName in its class.</span></p></li><li><p><span>The home page is routing in it&#39;s default to the </span><code>AppWidget</code><span>:</span></p><p><img src="https://www.dropbox.com/s/85710dix578z1jw/image-20210608113745627.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608113745627"></p><p><span>This widget is activating an initialization chain: it&#39;s using a </span><code>FutureProvider</code><span>, that calls the </span><code>init</code><span> method of the Initializer.</span></p><p><span>after the process is done, it&#39;s  moving on to state check:</span></p><p><img src="https://www.dropbox.com/s/tn45wtiaovliyf2/image-20210608114021159.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608114021159"></p><p><span>The app checks if there is a user connected to the app. if not, it shows the login Page.(using the is connected by the Auth Service)</span></p><p><span>otherwise - it will check for project state:</span></p><p><img src="https://www.dropbox.com/s/k38tnd84ceuu7go/image-20210608114326133.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608114326133"></p><p><span>Pretty large widget! let&#39;s look at the documentation</span></p><p><img src="https://www.dropbox.com/s/09uagw3fq60zlp4/image-20210608114406289.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608114406289"></p><p><span>as we can see, this widget is using multiple providers:</span></p><ol start='' ><li><p><span>first of all, it checks if there is a &quot;last project&quot; that the user visited. if so, it will try to open it.</span></p></li><li><p><span>otherwise, it will see if the user have single or multiple project:</span></p><ul><li><span>If it has multiple project, it will show the choose project widget so the user could choose.</span></li><li><span>If it has only one active project, it will automatically connect the user to it</span></li></ul></li><li><p><span>If the user does not have any project, it will show him a message that there are no project available right now.</span></p></li></ol><p><span>This work flow is working in the back ground after the first login it will open the Project menu screen of the last project (as the user would expect). It uses the CurrentUserController and CurrentProjectController to do that.</span></p></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3 id='brick-wall-pattern'><span>&quot;Brick Wall&quot; Pattern</span></h3><p><img src="https://www.dropbox.com/s/ibencjfejlve2g2/Template_Brick_Design.png?raw=1" referrerpolicy="no-referrer" alt="Template_Brick_Design (1)"></p><p>&nbsp;</p><p><span>This is one of the most important mechanism in the app. It&#39;s in charge of building multiple report type, versions of each report type, and do it in dynamically, with reusable components.</span></p><p>&nbsp;</p><h4 id='current-templates'><span>Current Templates</span></h4><ol start='' ><li><span>Mechanical Report</span></li><li><span>Quality Control Mechanical Report</span></li><li><span>Quality Control Manual Report</span></li><li><span>Bunkers Clearance Report</span></li><li><span>Deep Targets Report</span></li><li><span>Emergency Practice Report</span></li><li><span>Daily Clearance Report</span></li><li><span>Manual Report * - This type of Report is not using the pattern, only it&#39;s </span><code>PDFBuilder</code><span> since it&#39;s forms are handled differently</span></li></ol><h4 id='current-bricks'><span>Current Bricks</span></h4><p><img src="https://www.dropbox.com/s/k700mzxwjuxgz9a/image-20210608120106263.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608120106263"></p><h4 id='template-building'><span>Template Building</span></h4><p><span>There are example of Templates in the </span><code>constants/ExampleTemplates.dart</code><span> file. the templates over there are also the current status of the templates in production branch. </span></p><p><img src="https://www.dropbox.com/s/7fccumgvvf1quod/image-20210608122127645.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608122127645"></p><p><span>as you can see, the building of a templates is fairly easy task. notice the the </span><code>templateBricks</code><span> field behaves as a Column - each brick will be places on below the other.</span></p><p><span>We encourage you to look over each bricks and see all the customizable options they offer</span></p><h4 id='function-resolver'><span>Function Resolver</span></h4><p><span>For The </span><code>ReadOnlyTextBrick</code><span> and for the </span><code>FunctionDropDownBrick</code><span> , the data is not entered by typing of the user, it tries to auto-fill the brick with the right value \ relevant options.  It does that using the Function Resolver.</span></p><p><span>It has two Options : Resolve by Entity, or resolve by list of entities. from it, it takes the relevant field, and display it / them in the report immediately. </span></p><p><span>It uses </span><code>enum</code><span> to map the data to the relevant brick: </span><code>SingleResolvedEntityEnum</code><span> for single value , </span><code>ResolvedEntityListEnum</code><span> for multiple values.</span></p><p>&nbsp;</p><p><img src="https://www.dropbox.com/s/el1gewn85z7byio/image-20210608121718856.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608121718856"></p><p><span>The functions themselves are from the logic layer from the relevant handler:</span></p><p><img src="https://www.dropbox.com/s/vxz0zo789xxe3ns/image-20210608122843495.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608122843495"></p><p><span>If you want to another option, all you need to do is create another enum to point is, and add it to the map in the constructor.</span></p><h4 id='builders'><span>Builders</span></h4><h5 id='templateformbuilder'><span>TemplateFormBuilder </span></h5><p><span>Interface for the form builder part of the &quot;Brick Wall&quot; pattern. Each implementation need to support converting all the bricks that described in this class to Flutter Widget</span></p><h5 id='widgetformbuilder'><span>WidgetFormBuilder</span></h5><p><span>Current implementation of </span><code>TemplateFormBuilder</code><span> it uses the the </span><a href='https://pub.dev/packages/flutter_form_builder'><span>flutter_form_builder</span></a><span> library to build to matching widget.</span></p><p>&nbsp;</p><h5 id='outputbuilder'><span>OutputBuilder</span></h5><p><span>Interface for the output file part of the &quot;Brick Wall&quot; pattern. Each Implementation needs to support converting all the bricks that described here, to output in the output file of chosen format</span></p><h6 id='pdfbuilder'><span>PDFBuilder </span></h6><p><span>Current Implementation of </span><code>OutputBuilder</code><span> , converting report to a PDF file, using the </span><a href='https://pub.dev/packages/pdf'><span>pdf</span></a><span> library .</span></p><p><strong><span>Notice</span></strong><span> - the library does not support Hebrew yet, there is a lot of wrappers in the </span><code>PDFBuilder</code><span> to make it work. mainly the methods </span><code>hebrewLineDecorator</code><span> and </span><code>paragraphHandler</code><span> . use that class carefully. </span></p><h5 id='adding-new-brick-type'><span>Adding new Brick Type</span></h5><ol start='' ><li><span>Build the brick according to the TemplateBrick interface(which include the AcceptOutputBuilders and AcceptFormBuilders)</span></li><li><span>Implement </span><code>build&lt;BRICK_NAME&gt;Brick</code><span> method in all relevant </span><code>FormBuilders</code><span>, and </span><code>OutputBuilders</code></li></ol><h5 id='adding-new-output-format'><span>Adding new output format</span></h5><ol start='' ><li><span>Build a New Builder that implement all  methods in the </span><code>OutputBuilder</code></li><li><span>Switch the Builder in the Report screens to the new one created.</span></li></ol><p>&nbsp;</p><h4 id='templates-versioning'><span>Templates Versioning</span></h4><p><span>We added version control to each template type, using the database:</span></p><p><img src="https://www.dropbox.com/s/8fhbnjc38beyy3i/image-20210608125505172.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608125505172"></p><p><span>each template collection, contains a field called :</span><code>Latest</code><span> which contains the id of the latest version of a certain template.</span></p><p><strong><span>This way -</span></strong><span> </span><strong><span>You can change the way the report will look, without breaking older reports in migration</span></strong></p><p>&nbsp;</p><p>&nbsp;</p><h4 id='templates---report-cycle--create-new-report'><span>Templates - Report Cycle : Create New Report </span></h4><ol start='' ><li><span>The user ask to create a new report of Template </span><code>x</code></li><li><code>ReportHandler</code><span> asks from the Database the latest version of that Template according to the </span><code>Latest</code><span> field in the collection.</span></li><li><span>The new </span><code>Report</code><span> is created with the Template that was extracted</span></li><li><span>WidgetFormBuilder is converting the report and template to a UI Form.</span></li></ol><h4 id='templates---report-cycle--edit-existing-report'><span>Templates - Report Cycle : Edit Existing Report </span></h4><ol start='' ><li><span>The user ask to create an existing </span><code>Report</code><span>, which contains its template version</span></li><li><span>WidgetFormBuilder is converting the report and template to a UI Form.</span></li></ol><p>&nbsp;</p><h5 id='mapping-each-templatetype-to-its-buildtemplate-method'><span>Mapping each </span><code>TemplateType</code><span> to it&#39;s </span><code>BuildTemplate</code><span> Method</span></h5><p><span>Taken from </span><code>ExampleTemplates.dart</code></p><p><img src="https://www.dropbox.com/s/kfvgw2pimzdut8f/image-20210608131331205.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608131331205"></p><h4 id='how-to-add-new-template'><span>How to Add New Template</span></h4><ol start='' ><li><p><strong><span>Adding new Type of Template</span></strong></p><ol start='' ><li><span>Add a new Template type enum for that temaplate.</span></li><li><span>In </span><code>ExampleTemplates.dart</code><span>  add a</span><code>build&lt;NEW_TEMPLATE_NAME&gt;Template</code><span> function, which returns a Template object in the way the you want it to look.</span></li><li><span>add the enum : function mapping to the </span><code>templateToFunctionMap</code><span> </span></li><li><span>add Button to navigate to Specific Report screen with that type</span></li></ol></li><li><p><strong><span>New Version of Existing Template</span></strong></p><ol start='' ><li><span>Override the current build template function in </span><code>ExampleTemplates.dart</code></li><li><span>Go to firestore, go to the Collection of </span><code>Templates/&lt;TEMPLATE_NAME&gt;/All &lt;TEMPLATE_NAME&gt;</code><span> and delete the current Latest field.</span></li></ol></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='tests'><span>Tests</span></h2><p><span>Currently, there are 3 types of tests:</span></p><h3 id='unit-tests'><span>Unit Tests</span></h3><p><span>Checking mainly the Entities logic.</span></p><p><span>you can run those tests with </span><code>flutter test</code><span> from the root folder of the test.</span></p><h3 id='logic-tests'><span>Logic Tests</span></h3><p><span>Checking all logic in the logic layers, and connectivity to the database. </span></p><p><span>Each Test class is implementing the following interface: </span></p><p><img src="https://www.dropbox.com/s/9lukhkuc0nb3n9q/image-20210608132558961.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608132558961"></p><p><span>Main objective of this class is to make sure that the database is on test mode before running it.</span></p><p><span>The logic tests is separated into multiple classes according to their subject of testing:</span></p><p><img src="https://www.dropbox.com/s/37zl5l2auvn66cl/image-20210608132724094.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608132724094"></p><p><span>All of the tests can be found in the </span><code>all_logic_tests.dart</code><span> file , and you can run them by the following command : </span></p><p><code>flutter drive --driver=test_driver/integration_driver.dart --target=integration_test/LogicTests/all_logic_tests.dart --dart-define=&#39;password=&lt;ENTER PASSWORD&gt;&#39;</code></p><p><span>Where the password should be the password of the admin in the tests.</span></p><p><strong><span>Notice:</span></strong><span> you need to activate an emulator for those tests. also - you need to uninstall the current app in the device you running the test on before running them</span></p><h3 id='ui-tests'><span>UI Tests</span></h3><p><span>Checks all the features in the app from the user perspective.  each tests suite is implementing the same Integration Test Class as the logic tests.</span></p><p><span>and here they are also separated by subject of testing.</span></p><p><img src="https://www.dropbox.com/s/nk5oili7r3473ex/image-20210608133045992.png?raw=1" referrerpolicy="no-referrer" alt="image-20210608133045992"></p><p><code>flutter drive --driver=test_driver/integration_driver.dart --target=integration_test/UITests/all_ui_tests.dart --dart-define=&#39;password=&lt;ENTER PASSWORD&gt;&#39;</code></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><strong><span>Notice:</span></strong><span> you need to activate an emulator for those tests. also - you need to uninstall the current app in the device you running the test on before running them</span></p><p><span>The UI test can take between 7-8 minutes.</span></p><p>&nbsp;</p><h3 id='qa-tests'><span>QA Tests</span></h3><p><span>are described in the following </span><a href='https://docs.google.com/spreadsheets/d/1WL9d4YpgQ3diZOBnuIzM3g8JcBAqsDfqY0Fke4dZfAQ/edit#gid=0'><span>link</span></a></p><p>&nbsp;</p><h2 id='deployment'><span>Deployment</span></h2><p><strong><span>MAKE SURE YOU RUN THE TESTS FIRST, AND TEST THE APP  THOROUGHLY</span></strong></p><p><span>After you finish testing the current version, merge the new features with the </span><code>Versions</code><span> branch in git. </span></p><p><strong><span>Make sure that in the </span><code>Versions</code><span> branch, the database is on production ENV</span></strong></p><h3 id='android'><span>Android</span></h3><p><span>Write the following lines (one after the other)</span></p><ol start='' ><li><code>flutter clean</code></li><li><code>flutter build apk --debug</code></li><li><code>flutter build apk --profile</code></li><li><code>flutter build apk --release</code></li></ol><p><span>The release APK file will be in the following path:</span></p><p><code>build/app/flutter-apk/app-release.apk</code><span>;</span></p><p><span>and be ready to install.</span></p><p><span>:)</span></p><p>&nbsp;</p><h2 id='further-documentation'><span>Further Documentation</span></h2><ol start='' ><li><span>Dart documentation - </span><a href='https://github.com/yodatk/IEODApp/blob/develop/docs/IEODApp_code_documentation.zip'><span>download</span></a><span> from the repository, extract, and open the </span><code>index.html</code><span> file.</span></li><li><span>Google Drive with ARD,ADD, and Diagrams can be found in this </span><a href='https://drive.google.com/drive/folders/1ucV3NPX7HiBsK60tQEh2uaS6tqeahMix?usp=sharing'><span>link</span></a><span>.</span></li></ol><p>&nbsp;</p><h2 id='contributors'><span>Contributors</span></h2><p><span>Shani Samson</span></p><p><span>Avi Buckman</span></p><p><span>Amir Stadler</span></p><p><span>Tomer Gonen</span></p><p>&nbsp;</p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#ieod-app---maintenance-manual">IEOD App - Maintenance Manual</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n8"><a class="md-toc-inner" href="#intro">Intro</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n33"><a class="md-toc-inner" href="#technical-stuff">Technical Stuff</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n34"><a class="md-toc-inner" href="#supporting-platforms">Supporting Platforms</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n36"><a class="md-toc-inner" href="#dependencies-and-versions">Dependencies and Versions</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n41"><a class="md-toc-inner" href="#git-management">Git Management</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n48"><a class="md-toc-inner" href="#prerequisites">Prerequisites</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n69"><a class="md-toc-inner" href="#first-run">First Run</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n75"><a class="md-toc-inner" href="#components-overview">Components Overview</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n98"><a class="md-toc-inner" href="#models--data-objects--entities">Models / Data Objects / Entities</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n114"><a class="md-toc-inner" href="#employee">Employee </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n116"><a class="md-toc-inner" href="#main-attributes-1">Main Attributes </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n140"><a class="md-toc-inner" href="#project">Project</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n142"><a class="md-toc-inner" href="#main-attributes-2">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n157"><a class="md-toc-inner" href="#arrangement">Arrangement</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n159"><a class="md-toc-inner" href="#main-attributes-3">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n167"><a class="md-toc-inner" href="#drivearrangement">DriveArrangement </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n169"><a class="md-toc-inner" href="#workarrangement">WorkArrangement</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n171"><a class="md-toc-inner" href="#imagefolderor-mapfolder">ImageFolder(or MapFolder)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n173"><a class="md-toc-inner" href="#main-attributes-4">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n180"><a class="md-toc-inner" href="#imagereference">ImageReference </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n182"><a class="md-toc-inner" href="#main-attributes-5">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n190"><a class="md-toc-inner" href="#site">Site</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n192"><a class="md-toc-inner" href="#main-attributes-6">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n196"><a class="md-toc-inner" href="#plot">Plot</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n198"><a class="md-toc-inner" href="#main-attributes-7">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n205"><a class="md-toc-inner" href="#strip">Strip</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n207"><a class="md-toc-inner" href="#stripjob">StripJob</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n218"><a class="md-toc-inner" href="#main-attributes-8">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n254"><a class="md-toc-inner" href="#important-methods-1">Important Methods </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n257"><a class="md-toc-inner" href="#report">Report</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n259"><a class="md-toc-inner" href="#main-attributes-9">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n272"><a class="md-toc-inner" href="#template">Template</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n274"><a class="md-toc-inner" href="#main-attributes-10">Main Attributes</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n287"><a class="md-toc-inner" href="#service-layer">Service Layer</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n291"><a class="md-toc-inner" href="#data-service">Data Service</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n314"><a class="md-toc-inner" href="#database-modeling">Database Modeling</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n347"><a class="md-toc-inner" href="#flexible-refactoring">Flexible Refactoring </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n358"><a class="md-toc-inner" href="#possible-changes">Possible changes</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n359"><a class="md-toc-inner" href="#adding-new-entity">Adding New Entity</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n373"><a class="md-toc-inner" href="#important-notice---offline-usage">Important Notice - Offline Usage</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n377"><a class="md-toc-inner" href="#storage-service">Storage Service</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n395"><a class="md-toc-inner" href="#authentication-service">Authentication Service</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n406"><a class="md-toc-inner" href="#logic-layer">Logic Layer</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n410"><a class="md-toc-inner" href="#word-on-statenotifiers">Word On StateNotifiers</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n417"><a class="md-toc-inner" href="#stream-vs-futures-and-data-extracting">Stream Vs Futures and Data Extracting</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n426"><a class="md-toc-inner" href="#employeehandler">EmployeeHandler </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n428"><a class="md-toc-inner" href="#needed-services-1">Needed Services</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n436"><a class="md-toc-inner" href="#state-notifiers-1">State notifiers</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n437"><a class="md-toc-inner" href="#currentemployeecontroller">CurrentEmployeeController</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n441"><a class="md-toc-inner" href="#fieldhandler">FieldHandler</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n443"><a class="md-toc-inner" href="#needed-services-2">Needed Services</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n451"><a class="md-toc-inner" href="#state-notifiers-2">State Notifiers</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n453"><a class="md-toc-inner" href="#currentplotcontroller">currentPlotController</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n455"><a class="md-toc-inner" href="#currentsitecontroller">currentSiteController</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n457"><a class="md-toc-inner" href="#reporthandler">ReportHandler</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n460"><a class="md-toc-inner" href="#dailyinfohandler">DailyInfoHandler</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n462"><a class="md-toc-inner" href="#needed-services-3">Needed Services</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n473"><a class="md-toc-inner" href="#projecthandler">ProjectHandler</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n475"><a class="md-toc-inner" href="#state-notifiers-3">State Notifiers</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n481"><a class="md-toc-inner" href="#initializer">Initializer</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n483"><a class="md-toc-inner" href="#important-methods-2">Important Methods</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n487"><a class="md-toc-inner" href="#offline-support">Offline Support</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n491"><a class="md-toc-inner" href="#presentation-layer">Presentation Layer</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n496"><a class="md-toc-inner" href="#widgets-1">Widgets </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n499"><a class="md-toc-inner" href="#permission-widgets">Permission Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n509"><a class="md-toc-inner" href="#navigation-widgets">Navigation Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n517"><a class="md-toc-inner" href="#other-useful-widgets">Other Useful Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n518"><a class="md-toc-inner" href="#imagepickerandshower">ImagePickerAndShower</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n522"><a class="md-toc-inner" href="#screens">Screens</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n544"><a class="md-toc-inner" href="#view-model">View Model</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n547"><a class="md-toc-inner" href="#screen-folder">Screen Folder </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n549"><a class="md-toc-inner" href="#controllers">Controllers </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n551"><a class="md-toc-inner" href="#widgets-2">Widgets</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n555"><a class="md-toc-inner" href="#screenutils">ScreenUtils  </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n557"><a class="md-toc-inner" href="#screenutilsregular">ScreenUtils(Regular)</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n559"><a class="md-toc-inner" href="#screenutilscontrollerforlist">ScreenUtilsControllerForList</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n561"><a class="md-toc-inner" href="#use-of-view-model-in-screen">Use Of View Model in Screen</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n571"><a class="md-toc-inner" href="#asyncvalue">AsyncValue</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n585"><a class="md-toc-inner" href="#main-widget-flow">Main Widget Flow</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n620"><a class="md-toc-inner" href="#brick-wall-pattern">"Brick Wall" Pattern</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n625"><a class="md-toc-inner" href="#current-templates">Current Templates</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n643"><a class="md-toc-inner" href="#current-bricks">Current Bricks</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n645"><a class="md-toc-inner" href="#template-building">Template Building</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n650"><a class="md-toc-inner" href="#function-resolver">Function Resolver</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n659"><a class="md-toc-inner" href="#builders">Builders</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n660"><a class="md-toc-inner" href="#templateformbuilder">TemplateFormBuilder </a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n662"><a class="md-toc-inner" href="#widgetformbuilder">WidgetFormBuilder</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n665"><a class="md-toc-inner" href="#outputbuilder">OutputBuilder</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n667"><a class="md-toc-inner" href="#pdfbuilder">PDFBuilder </a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n670"><a class="md-toc-inner" href="#adding-new-brick-type">Adding new Brick Type</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n676"><a class="md-toc-inner" href="#adding-new-output-format">Adding new output format</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n683"><a class="md-toc-inner" href="#templates-versioning">Templates Versioning</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n690"><a class="md-toc-inner" href="#templates---report-cycle--create-new-report">Templates - Report Cycle : Create New Report </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n700"><a class="md-toc-inner" href="#templates---report-cycle--edit-existing-report">Templates - Report Cycle : Edit Existing Report </a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n707"><a class="md-toc-inner" href="#mapping-each-templatetype-to-its-buildtemplate-method">Mapping each <code>TemplateType</code> to it's <code>BuildTemplate</code> Method</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n710"><a class="md-toc-inner" href="#how-to-add-new-template">How to Add New Template</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n733"><a class="md-toc-inner" href="#tests">Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n735"><a class="md-toc-inner" href="#unit-tests">Unit Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n738"><a class="md-toc-inner" href="#logic-tests">Logic Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n749"><a class="md-toc-inner" href="#ui-tests">UI Tests</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n760"><a class="md-toc-inner" href="#qa-tests">QA Tests</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n763"><a class="md-toc-inner" href="#deployment">Deployment</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n767"><a class="md-toc-inner" href="#android">Android</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n783"><a class="md-toc-inner" href="#further-documentation">Further Documentation</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n790"><a class="md-toc-inner" href="#contributors">Contributors</a></span></p></div><p><img src="https://www.dropbox.com/s/gnett6z0ufvmtkl/IEOD_LOGO.jpeg?raw=1" referrerpolicy="no-referrer" alt="IEOD_LOGO"></p></div></div>
+</body>
+</html>
